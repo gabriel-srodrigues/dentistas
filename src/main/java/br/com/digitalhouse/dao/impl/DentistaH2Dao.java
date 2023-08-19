@@ -19,7 +19,6 @@ import java.util.Optional;
 
 public class DentistaH2Dao implements IDao<Dentista> {
     private static final Logger log = Logger.getLogger(DentistaH2Dao.class);
-    private final ConfiguracaoJdbc configuracaoJdbc = new ConfiguracaoJdbc();
     private static final String SQL_CRIACAO_DENTISTA = """
             INSERT INTO Dentista(nome, cro, data_nascimento, especialidade) VALUES(?, ?, ?, ?);
             """;
@@ -27,15 +26,14 @@ public class DentistaH2Dao implements IDao<Dentista> {
             SELECT d.id, d.nome, d.cro, d.data_nascimento, d.especialidade
             FROM Dentista d WHERE d.id = ?
             """;
-
     private static final String SQL_BUSCAR_TODOS = """
             SELECT d.id, d.nome, d.cro, d.data_nascimento, d.especialidade FROM Dentista d
             """;
-
     private static final String SQL_EXCLUIR_DENTISTA_POR_ID = "DELETE FROM Dentista WHERE id = ?";
     private static final String SQL_ATUALIZAR_DENTISTA = """
             UPDATE Dentista SET nome = ?, cro = ?, data_nascimento = ?, especialidade = ? WHERE id = ?;
             """;
+    private final ConfiguracaoJdbc configuracaoJdbc = new ConfiguracaoJdbc();
 
     @Override
     public Dentista criar(Dentista entidade) {
@@ -109,7 +107,7 @@ public class DentistaH2Dao implements IDao<Dentista> {
         log.info("[dentista_h2]: atualizando dados do dentista");
         Connection connection = configuracaoJdbc.getConnection();
 
-        try(PreparedStatement statement = connection.prepareStatement(SQL_ATUALIZAR_DENTISTA)) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL_ATUALIZAR_DENTISTA)) {
             statement.setString(1, dentista.getNome());
             statement.setString(2, dentista.getCro());
             statement.setDate(3, dentista.getDataNascimentoComoDate());
@@ -118,7 +116,7 @@ public class DentistaH2Dao implements IDao<Dentista> {
             log.info("[dentista_h2]: executando atualização fisica");
             statement.executeUpdate();
             return dentista;
-        }catch (Exception e) {
+        } catch (Exception e) {
             log.error("Opa, um erro insperado aconteceu :)", e);
             return null;
         }

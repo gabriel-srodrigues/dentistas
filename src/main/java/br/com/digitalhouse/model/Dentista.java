@@ -61,12 +61,12 @@ public class Dentista implements Serializable {
         return dataNascimento;
     }
 
-    public Date getDataNascimentoComoDate() {
-        return Date.valueOf(getDataNascimento());
-    }
-
     public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+
+    public Date getDataNascimentoComoDate() {
+        return Date.valueOf(getDataNascimento());
     }
 
     public EspecialidadeEnum getEspecialidade() {

@@ -39,7 +39,7 @@ class DentistaH2DaoTest {
     void dadoDentistasNoBancoDeDados_quandoAtualizamosDentista1_entaoExecutarComSucesso() {
         String nomeDentista = "Gabriel Rodrigues";
         String croDentista = "615.535.105.014";
-        LocalDate nascimentoDentista = LocalDate.of(1999, Month.JULY,8);
+        LocalDate nascimentoDentista = LocalDate.of(1999, Month.JULY, 8);
         EspecialidadeEnum especialidadeDentista = EspecialidadeEnum.ORTODONTISTA;
 
         Optional<Dentista> dentistaAntesDaAtualizacao = dentistaH2Dao.buscarPorId(1);
