@@ -1,10 +1,11 @@
-package br.com.digitalhouse.dao.impl;
+package br.com.digitalhouse.dentistas.dao.impl;
 
-import br.com.digitalhouse.dao.ConfiguracaoJdbc;
-import br.com.digitalhouse.dao.IDao;
-import br.com.digitalhouse.model.Dentista;
-import br.com.digitalhouse.model.EspecialidadeEnum;
-import org.apache.log4j.Logger;
+import br.com.digitalhouse.dentistas.dao.ConfiguracaoJdbc;
+import br.com.digitalhouse.dentistas.dao.IDao;
+import br.com.digitalhouse.dentistas.model.Dentista;
+import br.com.digitalhouse.dentistas.model.EspecialidadeEnum;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,8 +18,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
+@Repository
 public class DentistaH2Dao implements IDao<Dentista> {
-    private static final Logger log = Logger.getLogger(DentistaH2Dao.class);
     private static final String SQL_CRIACAO_DENTISTA = """
             INSERT INTO Dentista(nome, cro, data_nascimento, especialidade) VALUES(?, ?, ?, ?);
             """;

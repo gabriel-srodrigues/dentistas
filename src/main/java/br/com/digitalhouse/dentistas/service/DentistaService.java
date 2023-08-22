@@ -1,6 +1,7 @@
-package br.com.digitalhouse.service;
+package br.com.digitalhouse.dentistas.service;
 
-import br.com.digitalhouse.model.Dentista;
+
+import br.com.digitalhouse.dentistas.model.Dentista;
 
 import java.util.List;
 

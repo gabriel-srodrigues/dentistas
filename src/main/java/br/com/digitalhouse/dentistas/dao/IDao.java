@@ -1,4 +1,4 @@
-package br.com.digitalhouse.dao;
+package br.com.digitalhouse.dentistas.dao;
 
 import java.util.List;
 import java.util.Optional;

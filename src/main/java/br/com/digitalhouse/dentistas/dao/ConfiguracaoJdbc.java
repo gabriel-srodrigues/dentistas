@@ -1,12 +1,12 @@
-package br.com.digitalhouse.dao;
+package br.com.digitalhouse.dentistas.dao;
 
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+@Slf4j
 public final class ConfiguracaoJdbc {
-    private static final Logger log = Logger.getLogger(ConfiguracaoJdbc.class);
     private final String urlBancoDeDados;
     private final String usuario;
     private final String senha;

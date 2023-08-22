@@ -1,11 +1,14 @@
-package br.com.digitalhouse.service.impl;
+package br.com.digitalhouse.dentistas.service.impl;
 
-import br.com.digitalhouse.dao.IDao;
-import br.com.digitalhouse.model.Dentista;
-import br.com.digitalhouse.service.DentistaService;
+
+import br.com.digitalhouse.dentistas.dao.IDao;
+import br.com.digitalhouse.dentistas.model.Dentista;
+import br.com.digitalhouse.dentistas.service.DentistaService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class DentistaServiceImpl implements DentistaService {
     private final IDao<Dentista> dentistaIDao;
 
